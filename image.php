@@ -2,7 +2,7 @@
  include ('core/init_inc.php');
  
  if(isset($_FILES['image'])){
-		$image_name = 'images/'. microtime(true) . '.png'; 			// for naming saved files.
+		$image_name = 'images/'. microtime(true) . '.png'; 	// for saved files naming.
 		
 		watermark_image($_FILES['image']['tmp_name'],$image_name);
 	}
@@ -20,13 +20,13 @@
  <div>
  <?php
  if (isset($image_name)){
-	 echo '<img src = "',$image_name,'" alt = "" />';
+	 echo '<img src = "',$image_name,'" alt = "", width = 900px, height = 500px />';
  }
  ?>
  </div>
  
  <div>
- <form method = "post" enctype = "multipart/form-data">
+ <form method = "post" enctype = "multipart/form-data">     	//This value is required when using forms for file upload control
  <p>
  <input type = "file" name = "image"/>
  <input type = "submit" value = "Upload">
